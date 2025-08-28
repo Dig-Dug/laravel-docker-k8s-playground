@@ -1,0 +1,49 @@
+run docker - Einstellungen enable Kubernetes
+    powershell: kubectl get nodes
+                kubectl get pods -A
+run laravel: php artisan serve
+
+
+powershell create deployment:
+     kubectl create deployment hello-nginx --image=nginx
+     //Expose the Deployment as a Service
+     kubectl expose deployment hello-nginx --type=NodePort --port=80
+     //Check the services
+     kubectl get services 
+     ***example :
+     NAME          TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
+    hello-nginx   NodePort    10.98.44.183   <none>        80:31944/TCP   67s
+    kubernetes    ClusterIP   10.96.0.1      <none>        443/TCP        19m
+     //Open in browser
+     http://localhost:<NodePort> 
+    ***example:  http://localhost:31944/
+
+NGINX
+create file: hello-nginx.yaml
+powershell: kubectl apply -f hello-nginx.yaml
+check: kubectl get pods
+       kubectl get svc
+test locally...
+powershell: kubectl port-forward service/hello-nginx 8080:80
+        then visit    http://localhost:8080/
+
+apply changes...
+sh:    kubectl apply -f hello-nginx.yaml
+       kubectl rollout restart deployment/hello-nginx
+
+
+
+
+
+AI:
+Practice with deployments & services using nginx.
+
+Upgrade nginx to serve a custom “Hello Kubernetes” page.
+
+Learn how to scale Pods safely.
+
+Move MySQL into Kubernetes (handle stateful sets / volumes).
+
+Connect Laravel pods + MySQL together inside the cluster.
+
+Eventually test scaling Laravel pods and service connections.
