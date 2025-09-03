@@ -1,0 +1,32 @@
+A StatefulSet (so each MySQL Pod keeps a stable identity).
+
+A PersistentVolumeClaim (PVC) so the database doesn’t wipe on restart.
+
+A Service so Laravel Pods can connect to it.
+
+RoadMap:
+
+Create a PersistentVolumeClaim → stores MySQL data on disk (so it survives Pod restarts).
+Create a Deployment with 1 MySQL Pod (simple for now).
+Create a Service so other Pods (like Laravel) can connect via mysql-service
+
+inside project:
+create yaml file (mysql) also check the laravel yaml to put it in the pod
+ sh: kubectl apply -f mysql-deployment.yaml
+     kubectl apply -f laravel-deployment.yaml  <--- for laravel
+    kubectl get pods
+    kubectl get svc     
+
+    kubectl logs <laravel-app-ff5f4b7b4-2pl5q> <--name, checks php should be running connecting laravel to mysql in k8s
+
+
+enter mysql:
+ps: mysql -h mysql-service -u laravel -p
+    psw laravelpassword 
+    
+    SHOW DATABASES;
+    USE laravel;
+    SHOW TABLES;
+
+
+  

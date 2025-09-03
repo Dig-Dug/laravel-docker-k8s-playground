@@ -1,0 +1,49 @@
+1. What is a Pod?
+
+Imagine a Pod as a box.
+
+Inside the box, you put your app (e.g., nginx, Laravel, MySQL, etc.).
+
+Kubernetes always runs your app inside Pods.
+
+So instead of saying “I’m running nginx”, in Kubernetes we say “I have an nginx Pod”.
+
+2. Why do we need more than one Pod?
+
+If you only have 1 Pod and it crashes → your app is down.
+
+If you have 3 Pods and 1 crashes → the other 2 still work.
+
+This is called high availability.
+
+More Pods also mean you can serve more users at the same time (scaling).
+
+3. What is round-robin?
+
+Round-robin = a fair turn-taking system.
+
+Example:
+
+You have 3 waiters (Pods).
+
+A restaurant door (Service) decides who serves the next customer.
+
+The Service sends customer 1 to waiter A, customer 2 to waiter B, customer 3 to waiter C, customer 4 again to waiter A … and so on.
+
+In Kubernetes, the Service does this automatically → it balances traffic across all Pods.
+
+4. Why scale to 3 Pods first?
+
+To test that Kubernetes actually spreads traffic across multiple Pods.
+
+With 3 Pods, you can see load balancing in action.
+
+It simulates a real-world app (like Laravel with many users).
+
+5. Why scale back to 1 Pod?
+
+Because you don’t always need 3 Pods (e.g., when testing locally).
+
+Running fewer Pods saves memory and CPU.
+
+It’s just a way to return things to a simple state.

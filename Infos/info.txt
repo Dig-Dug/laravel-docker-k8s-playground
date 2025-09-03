@@ -33,6 +33,14 @@ sh:    kubectl apply -f hello-nginx.yaml
 
 
 
+scale pods:
+
+Scale up to 3 Pods
+   sh: kubectl scale deployment hello-nginx --replicas=3
+Check Pods
+   sh: kubectl get pods -o wide
+Scale back to 1 Pod
+   sh: kubectl scale deployment hello-nginx --replicas=1
 
 
 AI:
