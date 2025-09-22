@@ -29,4 +29,27 @@ ps: mysql -h mysql-service -u laravel -p
     SHOW TABLES;
 
 
+create secret from yaml file to sql:
+sh-----
+
+kubectl create secret generic laravel-db-secret `
+  --from-literal=DB_DATABASE=laravel `
+  --from-literal=DB_USERNAME=laravel `
+  --from-literal=DB_PASSWORD=secret
+
+
+/////////////////////////
+kubectl get pods
+(you already saw it: laravel-app-899dd44f-xd5s9)
+Open a shell inside it:
+kubectl exec -it laravel-app-899dd44f-xd5s9 -- sh
+Inside the pod, run:
+php artisan migrate
+/////////////////////////////
+Check in powershell:
+kubectl run mysql-client --rm -it --image=mysql:8.0 -- bash
+mysql -h mysql-service -u laravel -p
+USE laravel;
+SELECT * FROM users;
+
   

@@ -55,3 +55,8 @@ Move MySQL into Kubernetes (handle stateful sets / volumes).
 Connect Laravel pods + MySQL together inside the cluster.
 
 Eventually test scaling Laravel pods and service connections.
+
+
+"preparing yaml file for MySQL integration to running Pod"
+"migrate php sql pods and yaml"
+git commit -m "Set up Kubernetes deployment for Laravel and MySQL; created secrets and tested migrations"

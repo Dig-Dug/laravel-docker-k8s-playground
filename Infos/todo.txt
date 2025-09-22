@@ -1,0 +1,3 @@
+Successfully populate tables with sample data and retrieve it from Laravel.
+
+Possibly expose a test route or API to display users.
