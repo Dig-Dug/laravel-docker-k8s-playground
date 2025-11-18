@@ -6,3 +6,5 @@ Step 1 — Generate controller
      php artisan make:controller UserController --resource
 
      add route to routes/web.php
+
+php artisan route:list <-- check routes in ps
