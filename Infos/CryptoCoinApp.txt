@@ -1,0 +1,8 @@
+php artisan make:model Coin -mcr
+php artisan migrate
+kubectl exec -it deploy/laravel-app -- bash
+
+Step 1 — Generate controller
+     php artisan make:controller UserController --resource
+
+     add route to routes/web.php
