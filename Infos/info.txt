@@ -1,6 +1,10 @@
 run docker - Einstellungen enable Kubernetes
     powershell: kubectl get nodes
-                kubectl get pods -A
+
+    run app: kubectl apply -f nameoffile.yml
+             kubectl get nodes
+             kubectl get svc
+                
 run laravel: php artisan serve
 
 
